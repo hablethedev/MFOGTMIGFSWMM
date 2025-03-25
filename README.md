@@ -4,6 +4,7 @@ Mainly Fedora only Gaming Timer made in Go for Sway WM (Mainly)
 
 # Dependencies For Anything
 socat - `sudo dnf install socat`
+
 swaywm - you can use others that support binding commands to buttons
 
 # How (Development)
@@ -15,5 +16,7 @@ swaywm - you can use others that support binding commands to buttons
 # Bindings
 
 `bindsym Mod4+z exec --no-startup-id sh -c "echo start | socat - UNIX-CONNECT:/tmp/timer.sock"`
+
 `bindsym Mod4+x exec --no-startup-id sh -c "echo stop | socat - UNIX-CONNECT:/tmp/timer.sock"`
+
 `bindsym Mod4+c exec --no-startup-id sh -c "echo reset | socat - UNIX-CONNECT:/tmp/timer.sock"`
