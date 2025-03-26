@@ -21,6 +21,7 @@ var (
 	timerValue time.Duration
 	fontFace   font.Face
 	socketPath string = "/tmp/timer.sock"
+	textColor  color.Color = color.RGBA{255, 140, 185, 255}
 )
 
 type Game struct{}
@@ -35,7 +36,7 @@ func (g *Game) Update() error {
 func (g *Game) Draw(screen *ebiten.Image) {
 	screen.Fill(color.Alpha{0})
 	msg := fmt.Sprintf("%02d:%02d.%03d", int(timerValue.Minutes()), int(timerValue.Seconds())%60, timerValue.Milliseconds()%1000)
-	text.Draw(screen, msg, fontFace, 40, 80, color.White)
+	text.Draw(screen, msg, fontFace, 40, 80, textColor)
 }
 
 func (g *Game) Layout(outsideWidth, outsideHeight int) (screenWidth, screenHeight int) {
